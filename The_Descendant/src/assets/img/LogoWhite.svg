@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 293.55 130">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 60px;
+      }
+
+      .cls-2 {
+        fill: #ededed;
+        font-family: ArbatoshRegular, 'Arbatosh Regular';
+      }
+
+      .cls-3, .cls-4 {
+        font-size: 72px;
+      }
+
+      .cls-5 {
+        font-size: 80px;
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.19em;
+      }
+    </style>
+  </defs>
+  <g id="Livello_1-2" data-name="Livello 1">
+    <text class="cls-2" transform="translate(103.57 52.24)"><tspan class="cls-3" x="0" y="0">Th</tspan><tspan class="cls-1" x="61.05" y="0">E</tspan><tspan class="cls-5" x="-94.78" y="48">D</tspan><tspan class="cls-3" x="-52.3" y="48">escenda</tspan><tspan class="cls-4" x="134.17" y="48">n</tspan><tspan class="cls-3" x="149.94" y="48">T</tspan></text>
+  </g>
+</svg>
