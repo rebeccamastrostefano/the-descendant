@@ -36,7 +36,6 @@ export default {
                 iconSize: [180, 80]
             }),
 
-            selectedMarker: "default", // Descrizione di default
         };
     },
 
@@ -48,10 +47,9 @@ export default {
             ))
         },
 
-        showDescription(markerId) {
-            this.selectedMarker = markerId;
+        showDescription: (markerId) => {
             // Nascondi tutte le descrizioni
-            const descriptions = document.querySelectorAll(".right-content > div");
+            const descriptions = document.querySelectorAll(".right > div");
             descriptions.forEach((desc) => {
                 desc.classList.add("none");
             });
@@ -61,7 +59,19 @@ export default {
             if (description) {
                 description.classList.remove("none");
             }
-        }
+        },
+
+        handleMapClick() {
+            const descriptions = document.querySelectorAll(".right > div");
+            descriptions.forEach((desc) => {
+                if (desc.classList.contains("default")) {
+                    desc.classList.remove("none");
+                } else {
+                    desc.classList.add("none");
+                }
+            });
+        },
+
     },
 
     mounted() {
@@ -69,7 +79,7 @@ export default {
         L.tileLayer('https://rebeccamastrostefano.github.io/map-descendant//{z}/{x}/{y}.png', {
             minZoom: 2,
             maxZoom: 4,
-            bounds: [[-110,116], [4916,-110]],
+            bounds: [[-110, 116], [4916, -110]],
             defaultZoom: 2,
             continuousWorld: false,
             noWrap: true,
@@ -118,6 +128,9 @@ export default {
                 this.showDescription("sigdifeld");
             });
 
+        this.handleMapClick()
+
+        window.scrollTo(0,0)
     },
 };
 
@@ -128,46 +141,49 @@ export default {
         <h1>MAP OF THE WORLD</h1>
 
         <div class="content-map container-fluid">
+
             <div class="mapContainer">
-                <div id="map"></div>
+                <div id="map" @click="handleMapClick"></div>
             </div>
+
             <div class="right">
-                <div class="right-content">
-                    <div :class="[selectedMarker === 'default' ? 'default' : 'none']">
-                        TODO
-                    </div>
 
-                    <div class="iswick none">
-                        iswick
-                    </div>
-
-                    <div class="hibrook none">
-                        hibrook
-                    </div>
-
-                    <div class="hilltoe none">
-                        hilltoe
-                    </div>
-
-                    <div class="arshill none">
-                        arshill
-                    </div>
-
-                    <div class="sigdifeld none">
-                        sigdifeld
-                    </div>
-
+                <div class="city default">
+                    <img src="https://rebeccamastrostefano.github.io/map-descendant//generic-frame.png" alt="">
                 </div>
+
+                <div class="iswick none city">
+                    <img src="https://rebeccamastrostefano.github.io/map-descendant//iswick-frame.png" alt="">
+                </div>
+
+                <div class="hibrook none city">
+                    <img src="https://rebeccamastrostefano.github.io/map-descendant//hibrook-frame.png" alt="">
+                </div>
+
+                <div class="hilltoe none city">
+                    <img src="https://rebeccamastrostefano.github.io/map-descendant//hilltoe-frame.png" alt="">
+                </div>
+
+                <div class="arshill none city">
+                    <img src="https://rebeccamastrostefano.github.io/map-descendant//arshill-frame.png" alt="">
+                </div>
+
+                <div class="sigdifeld none city">
+                    <img src="https://rebeccamastrostefano.github.io/map-descendant//sigdifeld-frame.png" alt="">
+                </div>
+
             </div>
         </div>
 
         <div class="divider"></div>
-        
+
         <div class="content-path container-fluid">
             <h2>LOOK AT THOPE'S JOURNEY</h2>
 
             <div class="img-container">
-                <img src="../assets//img/map-path.png" alt="">
+                <video controls loop autoplay>
+                    <source src="https://rebeccamastrostefano.github.io/map-descendant//path-video.mp4" type="video/mp4">
+                </video>
             </div>
 
         </div>
@@ -179,9 +195,13 @@ h1 {
     margin: 30px 0;
 }
 
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .main-container {
-    --bs-gutter-x:0;
+    --bs-gutter-x: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -197,6 +217,7 @@ h1 {
     margin-inline: 50px;
     max-width: 1500px;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 .mapContainer {
@@ -211,34 +232,19 @@ h1 {
     position: relative;
 }
 
-.text {
-    position: absolute;
-    right: 100px;
-    top: 0;
-    color: white;
-}
-
-img {
-    height: 100%;
-    width: 100%;
-}
-
 .right {
-    width: 30%;
+    display: flex;
+    justify-content: center;
     height: 700px;
-    background-image: url('./../assets/img/frame.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
 }
 
-.right-content {
-    color: rgb(0, 0, 0);
-    left: 50%;
-    transform: translate(-50%, 30%);
-    margin-top:100px ;
-    position: absolute;
+.city img {
+    height: 100%;
+    object-fit: contain;
 }
 
 .divider {
@@ -248,12 +254,22 @@ img {
     background-image: url('../assets/img/divider.png');
 }
 
-h2 {
-    margin: 20px 0;
+.content-path {
+    margin: 40px 0;
 }
-.img-container{
+
+h2 {
+    margin: 40px 0;
+}
+
+.img-container {
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.img-container video {
+    height: 100%;
+    width: 100%;
 }
 
 .none {
@@ -261,33 +277,41 @@ h2 {
 }
 
 @media (max-width:1180px) {
-    .content-map{
+    .content-map {
         flex-direction: column;
         align-items: center;
     }
 
-    #map{
+    #map {
         width: 80%;
         margin: auto;
     }
 
-    .right{
-        width: 100%;
+    .right {
+        width: 400px;
+        margin-top: 30px;
     }
 
-    .img-container{
-    height: 80%;
+    .img-container {
+        height: 80%;
     }
 }
 
 @media (max-width: 660px) {
-    #map{
+    #map {
         height: 400px;
         width: 100%;
     }
 
-    .right{
-        height: 400px;
+    .right {
+        height: 600px;
+        margin-top: 30px;
     }
-	}
+}
+
+@media (max-width: 400px) {
+    .city img{
+        width: 85%;
+    }
+}
 </style>

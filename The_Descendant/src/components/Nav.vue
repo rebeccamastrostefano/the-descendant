@@ -35,7 +35,7 @@
 				aria-labelledby="offcanvasExampleLabel"
 			>
 				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+					<h5 class="offcanvas-title" id="offcanvasExampleLabel"><img src="../assets/img/LogoWhite.png" alt=""></h5>
 					<button
 						type="button"
 						class="btn-close"
@@ -57,6 +57,14 @@
 </template>
 
 <style scoped>
+	.offcanvas{
+		background-color: rgb(192, 152, 89);
+	}
+
+	.offcanvas-header .btn-close{
+		font-size: 30px;
+	}
+
 	.nav {
 		background-color: rgba(0, 0, 0, 0.8);
 		width: 98%;
@@ -109,10 +117,16 @@
 	.list-canvas{
 		display: flex;
 		flex-direction: column;
+		padding-left: 0;
+	}
+
+	.list-canvas li{
+		margin-top: 30px;
 	}
 
 	.list-canvas li a {
-		color: black;
+		color: white;
+		font-size: 30px;
 	}
 
 	@media (max-width: 660px) {

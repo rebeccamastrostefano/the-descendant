@@ -16,8 +16,8 @@
 						back: "https://rebeccamastrostefano.github.io/map-descendant//carousel/back-tintin.png",
 					},
 					{
-						img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/pixie-framed.png",
-						back: "https://rebeccamastrostefano.github.io/map-descendant//carousel/back-tintin.png",
+						img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/alveric.png",
+						back: "https://rebeccamastrostefano.github.io/map-descendant//carousel/back-alveric.png",
 					},
 				],
 
@@ -37,9 +37,31 @@
 
 			return {
 				myCarousel,
-			};
-		},
-	};
+
+				breakpoints: {
+				// 700px and up
+				0: {
+					itemsToShow: 1,
+					snapAlign: "center"
+				},
+				// 1024 and up
+				1024: {
+					itemsToShow: 2,
+					snapAlign: "start"
+				},
+
+				1324: {
+					itemsToShow: 3,
+					snapAlign: "start"
+				}
+			}
+		}
+	},
+
+	mounted(){
+    	window.scrollTo(0,0)
+	}
+	}
 </script>
 
 <template>
@@ -80,6 +102,8 @@
 				:items-to-show="3"
 				:wrap-around="true"
 				:autoplay="3000"
+				:pauseAutoplayOnHover="true"
+				:breakpoints="breakpoints"
 				ref="myCarousel"
 			>
 				<slide v-for="img in caroImg" :key="img">
@@ -152,7 +176,7 @@
 	}
 
 	.carousel-container {
-		max-width: 1000px;
+		max-width: 1400px;
 		margin: auto;
 		padding: 100px 0;
 		position: relative;
@@ -181,7 +205,7 @@
 	}
 
 	.img-container {
-		height: 400px;
+		height: 600px;
 		position: relative;
 	}
 
@@ -258,6 +282,10 @@
 		h1{
 			font-size: 30px;
 		}
+
+		.carousel-btn{
+			flex-direction: column;
+		}
 	}
 
 	@media (max-width:550px) {
@@ -267,6 +295,10 @@
 		.map-content{
 			font-size: 20px;
 			line-height: 27px;
+		}
+
+		.img-container{
+			height: 500px;
 		}
 	}
 </style>

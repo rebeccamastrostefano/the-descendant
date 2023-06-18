@@ -25,6 +25,10 @@ export default{
     ]
   }
 },
+
+mounted(){
+  window.scrollTo(0,0)
+}
 }
 
 </script>
@@ -32,7 +36,7 @@ export default{
 <template>
 <!-- <Nav/> -->
 <div class="main-container">
-  <h1>Learn About the Creatures of the Story World</h1>
+  <h1>Learn About the Creatures of the Land</h1>
   <div class="container-cards">
     <div class="cards" v-for="img in this.cardImg">
         <div class="face front">
@@ -55,11 +59,17 @@ export default{
 <style scoped>
 .main-container{
   padding-top:120px; 
+  background-image: url('../assets/img/forest.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 30px;
 }
 
 h1{
+  font-size: 60px;
   text-align: center;
-  color: white;
+  color: rgb(247, 247, 247);
   margin-top:30px ;
 }
 
@@ -67,7 +77,7 @@ h1{
   max-width: 1399px;
   display: flex;
   justify-content: space-around;
-  margin: 20px auto;
+  margin: 0 auto;
   flex-wrap: wrap;
 }
 
@@ -116,5 +126,11 @@ img {
 
 .cards:hover .back {
     transform: perspective(600px) rotateY(360deg);
+}
+
+@media (max-width: 700px) {
+  h1{
+    font-size: 35px;
+  }
 }
 </style>
