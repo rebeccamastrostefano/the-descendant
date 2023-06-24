@@ -24,6 +24,16 @@ export default {
           img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/pixie-framed.png",
           back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-pixie.png"
         },
+
+        {
+          img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/fomorian-framed.png",
+          back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-fomorian.png"
+        },
+
+        {
+          img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/gwyllion-framed.png",
+          back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-gwyllion.png"
+        },
       ]
     }
   },
