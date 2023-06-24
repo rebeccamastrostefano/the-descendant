@@ -76,5 +76,6 @@
     i{
         font-size: 18px;
         margin-inline: 5px;
+        color: white;
     }    
 </style>

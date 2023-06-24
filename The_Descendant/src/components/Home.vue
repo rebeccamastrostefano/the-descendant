@@ -6,6 +6,8 @@
 	export default {
 		data() {
 			return {
+				isActive: false,
+
 				caroImg: [
 					{
 						img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/Tophe.png",
@@ -64,7 +66,25 @@
 
 	mounted(){
     	window.scrollTo(0,0)
-	}
+	},
+
+	methods: {
+		cardFlip(){
+			this.isActive = !this.isActive;
+			const phone = window.matchMedia("(max-width: 700px)");
+
+			const card = event.currentTarget;
+			const back = card.querySelector('.back');
+
+			if (this.isActive && phone.matches) {
+				back.style.zIndex = "22323";
+				console.log('ciao')
+			}
+			else{
+				back.style.zIndex = "-22323"
+			}
+		}
+	},
 	}
 </script>
 
@@ -111,7 +131,7 @@
 				ref="myCarousel"
 			>
 				<slide v-for="img in caroImg" :key="img">
-					<div class="img-container">
+					<div class="img-container" @click="cardFlip">
 						<div class="front">
 							<img :src="img.img" alt="" />
 						</div>
