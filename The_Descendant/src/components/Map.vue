@@ -199,7 +199,7 @@ export default {
     <div class="main-container container-fluid">
         <h1>MAP OF THE WORLD</h1>
 
-        <div class="content-map container-fluid">
+        <div class="content-map container-fluid row">
 
             <div class="mapContainer">
                 <div id="map" @click="handleMapClick"></div>
@@ -273,6 +273,7 @@ h1 {
 
 .content-map {
     display: flex;
+    justify-content: center;
     margin-inline: 50px;
     max-width: 1500px;
     margin: auto;
@@ -294,6 +295,7 @@ h1 {
 .right {
     display: flex;
     justify-content: center;
+    width: 30%;
     height: 700px;
     background-position: center;
     background-size: contain;
@@ -303,6 +305,7 @@ h1 {
 
 .city img {
     height: 100%;
+    width: 100%;
     object-fit: contain;
 }
 

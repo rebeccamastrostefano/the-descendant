@@ -16,6 +16,7 @@
 				<li><router-link :to="{name: 'home'}">Home</router-link></li>
 				<li><router-link :to="{name: 'map'}">Map</router-link></li>
 				<li><router-link :to="{name: 'bestiary'}">Bestiary</router-link></li>
+				<!-- <li><a href="/bestiary">Bestiary</a></li> -->
 			</ul>
 
 			<a

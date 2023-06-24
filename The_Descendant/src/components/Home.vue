@@ -144,6 +144,7 @@
 		background-size: cover;
 		background-position: center;
 		width: 100%;
+		padding-top: 130px;
 		color: white;
 		display: flex;
 		flex-direction: column;
@@ -177,6 +178,8 @@
 		background-size: contain;
 		width: 100%;
 		background-image: url("../assets/img/divider.png");
+		position: relative;
+		z-index: 4534543;
 	}
 
 	.carousel-container {
