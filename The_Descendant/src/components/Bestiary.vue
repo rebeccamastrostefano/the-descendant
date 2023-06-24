@@ -1,66 +1,66 @@
 <script>
-export default{
+export default {
   data() {
-  return {
-    isActive:false,
+    return {
+      isActive: false,
 
-    cardImg:[
+      cardImg: [
         {
-          img:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/Glashtyn_Framed.png",
-          back:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-glashtyn.png"
+          img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/Glashtyn_Framed.png",
+          back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-glashtyn.png"
         },
 
         {
-          img:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/Tophe.png",
-          back:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-sidhe.png"
+          img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/Tophe.png",
+          back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-sidhe.png"
         },
 
         {
-          img:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/puca.png",
-          back:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-puca.png"
+          img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/puca.png",
+          back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-puca.png"
         },
 
         {
-          img:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/pixie-framed.png",
-          back:"https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-pixie.png"
+          img: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/pixie-framed.png",
+          back: "https://rebeccamastrostefano.github.io/map-descendant//bestiary/back-pixie.png"
         },
-    ]
-  }
-},
-
-mounted(){
-  window.scrollTo(0,0)
-},
-
-methods: {
-  flipCard(){
-    this.isActive = !this.isActive
-    const phone = window.matchMedia("(max-width: 700px)");
-
-    const card = event.currentTarget;
-    const front = card.querySelector('.front');
-    const back = card.querySelector('.back');
-
-    if (this.isActive && phone.matches) {
-      front.style.transform = "perspective(600px) rotateY(180deg)";
-      back.style.transform = "perspective(600px) rotateY(360deg)";
-    } 
-    else {
-      front.style.transform = "";
-      back.style.transform = "";
+      ]
     }
-  }
-},
+  },
+
+  mounted() {
+    window.scrollTo(0, 0)
+  },
+
+  methods: {
+    flipCard() {
+      this.isActive = !this.isActive
+      const phone = window.matchMedia("(max-width: 700px)");
+
+      const card = event.currentTarget;
+      const front = card.querySelector('.front');
+      const back = card.querySelector('.back');
+
+      if (this.isActive && phone.matches) {
+        front.style.transform = "perspective(600px) rotateY(180deg)";
+        back.style.transform = "perspective(600px) rotateY(360deg)";
+      }
+      else {
+        front.style.transform = "";
+        back.style.transform = "";
+      }
+    }
+  },
 }
 
 </script>
 
 <template>
-<!-- <Nav/> -->
-<div class="main-container">
-  <h1>Learn About the Creatures of the Land</h1>
-  <div class="container-cards">
-    <div class="cards" v-for="img in this.cardImg" @click="flipCard">
+  <!-- <Nav/> -->
+  <div class="main-container">
+    <h1>Learn About the Creatures of the Land</h1>
+    <div class="container-cards">
+      <div class="cards" v-for="img in this.cardImg" @click="flipCard">
         <div class="face front">
           <img :src="img.img">
         </div>
@@ -68,19 +68,19 @@ methods: {
         <div class="face back">
           <img :src="img.back">
         </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
 
 
 
-<!-- <Foot/>  -->
+  <!-- <Foot/>  -->
 </template>
 
 <style scoped>
-.main-container{
-  padding-top:120px; 
+.main-container {
+  padding-top: 120px;
   background-image: url('../assets/img/forest.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -88,14 +88,14 @@ methods: {
   padding-bottom: 30px;
 }
 
-h1{
+h1 {
   font-size: 60px;
   text-align: center;
   color: rgb(247, 247, 247);
-  margin-top:30px ;
+  margin-top: 30px;
 }
 
-.container-cards{
+.container-cards {
   max-width: 1399px;
   display: flex;
   justify-content: space-around;
@@ -111,55 +111,55 @@ h1{
 }
 
 .face {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	border-radius: 10px;
-	overflow: hidden;
-	transition: .5s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
 }
 
 .front {
-    transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
 }
 
 img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .back {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    transform: perspective(600px) rotateY(180deg);
-    padding: 15px;
-    color: crimson;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transform: perspective(600px) rotateY(180deg);
+  padding: 15px;
+  color: crimson;
+  text-align: center;
 }
 
 .cards:hover .front {
-    transform: perspective(600px) rotateY(180deg);
+  transform: perspective(600px) rotateY(180deg);
 }
 
-.card-click-front{
+.card-click-front {
   transform: perspective(600px) rotateY(180deg);
 }
 
 .cards:hover .back {
-    transform: perspective(600px) rotateY(360deg);
+  transform: perspective(600px) rotateY(360deg);
 }
 
-.card-click-back{
+.card-click-back {
   transform: perspective(600px) rotateY(360deg);
 }
 
 @media (max-width: 700px) {
-  h1{
+  h1 {
     font-size: 35px;
   }
 }

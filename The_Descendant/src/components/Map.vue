@@ -3,7 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { bounds, point, latLng, CRS } from "leaflet";
 // import "../../node_modules/leaflet/dist/leaflet.js"
-import {ref, onMounted} from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
     name: "LeafletMap",
@@ -112,10 +112,10 @@ export default {
             errorTileUrl: "src/assets/img/tile_sea.png",
         }).addTo(this.map);
         this.boundsFun()
-        
 
 
-        const Iswick= L.marker([-6, -85], {
+
+        const Iswick = L.marker([-6, -85], {
             icon: this.iswick,
         })
             .addTo(this.map)
@@ -126,11 +126,11 @@ export default {
                 Iswick.setIcon(this.iswickhover);
             })
             .on('mouseout', () => {
-                Iswick.setIcon(this.iswick); 
+                Iswick.setIcon(this.iswick);
             });
-                
 
-        const Hibrook= L.marker([-35, -5], {
+
+        const Hibrook = L.marker([-35, -5], {
             icon: this.hibrook,
         })
             .addTo(this.map)
@@ -144,7 +144,7 @@ export default {
                 Hibrook.setIcon(this.hibrook);
             });
 
-        const Hilltoe= L.marker([66, -95], {
+        const Hilltoe = L.marker([66, -95], {
             icon: this.hilltoe,
         })
             .addTo(this.map)
@@ -158,7 +158,7 @@ export default {
                 Hilltoe.setIcon(this.hilltoe);
             });
 
-        const Arshill= L.marker([-53, 45], {
+        const Arshill = L.marker([-53, 45], {
             icon: this.arshill,
         })
             .addTo(this.map)
@@ -172,7 +172,7 @@ export default {
                 Arshill.setIcon(this.arshill);
             });
 
-        const Sigdifeld= L.marker([73, 113], {
+        const Sigdifeld = L.marker([73, 113], {
             icon: this.sigdifeld,
         })
             .addTo(this.map)
@@ -188,7 +188,7 @@ export default {
 
         this.handleMapClick()
 
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
 
     },
 };
@@ -254,7 +254,7 @@ h1 {
     margin: 30px 0;
 }
 
-.container-fluid{
+.container-fluid {
     padding-left: 0;
     padding-right: 0;
 }
@@ -372,7 +372,7 @@ h2 {
 }
 
 @media (max-width: 400px) {
-    .city img{
+    .city img {
         width: 85%;
     }
 }
