@@ -8,6 +8,13 @@ export default {
 		return {
 			isActive: false,
 
+			isMobile() {
+			const screenWidth = window.innerWidth;
+			const threshold = 700;
+
+			return screenWidth < threshold;
+			},
+
 			caroImg: [
 				{
 					img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/Tophe.png",
@@ -71,12 +78,11 @@ export default {
 	methods: {
 		cardFlip() {
 			this.isActive = !this.isActive;
-			const phone = window.matchMedia("(max-width: 700px)");
 
 			const card = event.currentTarget;
 			const back = card.querySelector('.back');
 
-			if (this.isActive && phone.matches) {
+			if (this.isActive) {
 				back.style.zIndex = "22323";
 				console.log('ciao')
 			}
@@ -116,7 +122,7 @@ export default {
 			<Carousel :items-to-show="3" :wrap-around="true" :autoplay="3000" :pauseAutoplayOnHover="true"
 				:breakpoints="breakpoints" ref="myCarousel">
 				<slide v-for="img in caroImg" :key="img">
-					<div class="img-container" @click="cardFlip">
+					<div class="img-container" @click="isMobile() && cardFlip">
 						<div class="front">
 							<img :src="img.img" alt="" />
 						</div>

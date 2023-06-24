@@ -33,12 +33,9 @@ export default {
 				</div>
 				<div class="offcanvas-body">
 					<ul class="list-canvas text-color-danger">
-						<li data-bs-dismiss="offcanvas" aria-label="Close"><router-link
-								:to="{ name: 'home' }">Home</router-link></li>
-						<li data-bs-dismiss="offcanvas" aria-label="Close"><router-link
-								:to="{ name: 'map' }">Map</router-link></li>
-						<li data-bs-dismiss="offcanvas" aria-label="Close"><router-link
-								:to="{ name: 'bestiary' }">Bestiary</router-link></li>
+						<li data-bs-dismiss="offcanvas" aria-label="Close"><router-link :to="{ name: 'home' }">Home</router-link></li>
+						<li data-bs-dismiss="offcanvas" aria-label="Close"><router-link :to="{ name: 'map' }">Map</router-link></li>
+						<li data-bs-dismiss="offcanvas" aria-label="Close"><router-link :to="{ name: 'bestiary' }">Bestiary</router-link></li>
 					</ul>
 				</div>
 			</div>
@@ -68,7 +65,7 @@ export default {
 	left: 0;
 	top: 0;
 	right: 0;
-	z-index: 23023;
+	z-index: 2324234234324324234234324324234233023;
 	padding-inline: 20px;
 	margin: 20px auto;
 	font-size: 25px;

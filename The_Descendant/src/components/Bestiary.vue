@@ -35,13 +35,12 @@ export default {
   methods: {
     flipCard() {
       this.isActive = !this.isActive
-      const phone = window.matchMedia("(max-width: 700px)");
 
       const card = event.currentTarget;
       const front = card.querySelector('.front');
       const back = card.querySelector('.back');
 
-      if (this.isActive && phone.matches) {
+      if (this.isActive) {
         front.style.transform = "perspective(600px) rotateY(180deg)";
         back.style.transform = "perspective(600px) rotateY(360deg)";
       }
@@ -49,7 +48,14 @@ export default {
         front.style.transform = "";
         back.style.transform = "";
       }
-    }
+    },
+
+    isMobile() {
+			const screenWidth = window.innerWidth;
+			const threshold = 700;
+
+			return screenWidth < threshold;
+			},
   },
 }
 
@@ -60,7 +66,7 @@ export default {
   <div class="main-container">
     <h1>Learn About the Creatures of the Land</h1>
     <div class="container-cards">
-      <div class="cards" v-for="img in this.cardImg" @click="flipCard">
+      <div class="cards" v-for="img in this.cardImg" @click="isMobile() && flipCard">
         <div class="face front">
           <img :src="img.img">
         </div>
