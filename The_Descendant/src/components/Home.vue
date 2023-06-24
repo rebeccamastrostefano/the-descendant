@@ -19,6 +19,10 @@
 						img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/alveric.png",
 						back: "https://rebeccamastrostefano.github.io/map-descendant//carousel/back-alveric.png",
 					},
+					{
+						img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/malo.png",
+						back: "https://rebeccamastrostefano.github.io/map-descendant//carousel/back-malo.png",
+					},
 				],
 
 				hover: false,

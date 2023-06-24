@@ -3,6 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { bounds, point, latLng, CRS } from "leaflet";
 // import "../../node_modules/leaflet/dist/leaflet.js"
+import {ref, onMounted} from 'vue'
 
 export default {
     name: "LeafletMap",
@@ -16,8 +17,18 @@ export default {
                 iconSize: [160, 80]
             }),
 
+            iswickhover: L.icon({
+                iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Iswick-hover.png',
+                iconSize: [160, 80]
+            }),
+
             hibrook: L.icon({
                 iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Hibrook.png',
+                iconSize: [180, 80]
+            }),
+
+            hibrookhover: L.icon({
+                iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Hibrook-hover.png',
                 iconSize: [180, 80]
             }),
 
@@ -26,13 +37,28 @@ export default {
                 iconSize: [160, 90]
             }),
 
+            hilltoehover: L.icon({
+                iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//HillToe-hover.png',
+                iconSize: [160, 90]
+            }),
+
             arshill: L.icon({
                 iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Arshill.png',
                 iconSize: [160, 80]
             }),
 
+            arshillhover: L.icon({
+                iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Arshill-hover.png',
+                iconSize: [160, 80]
+            }),
+
             sigdifeld: L.icon({
                 iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Sigdifeld.png',
+                iconSize: [180, 80]
+            }),
+
+            sigdifeldhover: L.icon({
+                iconUrl: 'https://rebeccamastrostefano.github.io/map-descendant//Sigdifeld-hover.png',
                 iconSize: [180, 80]
             }),
 
@@ -86,51 +112,84 @@ export default {
             errorTileUrl: "src/assets/img/tile_sea.png",
         }).addTo(this.map);
         this.boundsFun()
+        
 
 
-        L.marker([-6, -85], {
+        const Iswick= L.marker([-6, -85], {
             icon: this.iswick,
         })
             .addTo(this.map)
             .on("click", () => {
                 this.showDescription("iswick");
+            })
+            .on('mouseover', () => {
+                Iswick.setIcon(this.iswickhover);
+            })
+            .on('mouseout', () => {
+                Iswick.setIcon(this.iswick); 
             });
+                
 
-        L.marker([-35, -5], {
+        const Hibrook= L.marker([-35, -5], {
             icon: this.hibrook,
         })
             .addTo(this.map)
             .on("click", () => {
                 this.showDescription("hibrook");
+            })
+            .on('mouseover', () => {
+                Hibrook.setIcon(this.hibrookhover);
+            })
+            .on('mouseout', () => {
+                Hibrook.setIcon(this.hibrook);
             });
 
-        L.marker([66, -95], {
+        const Hilltoe= L.marker([66, -95], {
             icon: this.hilltoe,
         })
             .addTo(this.map)
             .on("click", () => {
                 this.showDescription("hilltoe");
+            })
+            .on('mouseover', () => {
+                Hilltoe.setIcon(this.hilltoehover);
+            })
+            .on('mouseout', () => {
+                Hilltoe.setIcon(this.hilltoe);
             });
 
-        L.marker([-53, 45], {
+        const Arshill= L.marker([-53, 45], {
             icon: this.arshill,
         })
             .addTo(this.map)
             .on("click", () => {
                 this.showDescription("arshill");
+            })
+            .on('mouseover', () => {
+                Arshill.setIcon(this.arshillhover);
+            })
+            .on('mouseout', () => {
+                Arshill.setIcon(this.arshill);
             });
 
-        L.marker([73, 113], {
+        const Sigdifeld= L.marker([73, 113], {
             icon: this.sigdifeld,
         })
             .addTo(this.map)
             .on("click", () => {
                 this.showDescription("sigdifeld");
+            })
+            .on('mouseover', () => {
+                Sigdifeld.setIcon(this.sigdifeldhover);
+            })
+            .on('mouseout', () => {
+                Sigdifeld.setIcon(this.sigdifeld);
             });
 
         this.handleMapClick()
 
         window.scrollTo(0,0)
+
     },
 };
 
