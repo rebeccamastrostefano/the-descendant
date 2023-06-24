@@ -8,13 +8,6 @@ export default {
 		return {
 			isActive: false,
 
-			isMobile() {
-			const screenWidth = window.innerWidth;
-			const threshold = 700;
-
-			return screenWidth < threshold;
-			},
-
 			caroImg: [
 				{
 					img: "https://rebeccamastrostefano.github.io/map-descendant//carousel/Tophe.png",
@@ -82,14 +75,20 @@ export default {
 			const card = event.currentTarget;
 			const back = card.querySelector('.back');
 
-			if (this.isActive) {
-				back.style.zIndex = "22323";
-				console.log('ciao')
+			if (this.isActive && this.isMobile) {
+				back.style.zIndex = "2020";
 			}
 			else {
-				back.style.zIndex = "-22323"
+				back.style.zIndex = "-16"
 			}
-		}
+		},
+
+		isMobile() {
+		const screenWidth = window.innerWidth;
+		const threshold = 700;
+
+		return screenWidth <= threshold;
+		},
 	},
 }
 </script>
@@ -101,9 +100,7 @@ export default {
 				<img src="./../assets/img/LogoWhite.svg" />
 			</div>
 			<h1>A DIVE INTO A STORY OF THE PAST</h1>
-			<a href="https://rebeccamastrostefano.github.io/map-descendant//The_Descendant.pdf"
-				@mouseover="this.hover = true" @mouseleave="this.hover = false"><img class="img-btn"
-					:src="`https://rebeccamastrostefano.github.io/map-descendant//${hover ? 'button-hover.png' : 'button.png'}`" /></a>
+			<a href="https://rebeccamastrostefano.github.io/map-descendant//The_Descendant.pdf" @mouseover="this.hover = true" @mouseleave="this.hover = false"><img  class="img-btn" :src="`https://rebeccamastrostefano.github.io/map-descendant//${hover ? 'button-hover.png' : 'button.png'}`" /></a>
 		</div>
 	</section>
 
@@ -122,7 +119,7 @@ export default {
 			<Carousel :items-to-show="3" :wrap-around="true" :autoplay="3000" :pauseAutoplayOnHover="true"
 				:breakpoints="breakpoints" ref="myCarousel">
 				<slide v-for="img in caroImg" :key="img">
-					<div class="img-container" @click="isMobile() && cardFlip">
+					<div class="img-container" @click="isMobile() && cardFlip()">
 						<div class="front">
 							<img :src="img.img" alt="" />
 						</div>
@@ -244,11 +241,11 @@ h2 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: -16;
+	z-index: -106;
 }
 
 .img-container:hover .back {
-	z-index: 2020;
+	z-index: 2028;
 }
 
 .right {

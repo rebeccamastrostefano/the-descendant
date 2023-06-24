@@ -43,6 +43,13 @@ export default {
   },
 
   methods: {
+    isMobile() {
+			const screenWidth = window.innerWidth;
+			const threshold = 700;
+
+			return screenWidth < threshold;
+		},
+
     flipCard() {
       this.isActive = !this.isActive
 
@@ -50,22 +57,16 @@ export default {
       const front = card.querySelector('.front');
       const back = card.querySelector('.back');
 
-      if (this.isActive) {
+      if (this.isActive && this.isMobile()) {
         front.style.transform = "perspective(600px) rotateY(180deg)";
         back.style.transform = "perspective(600px) rotateY(360deg)";
       }
       else {
-        front.style.transform = "";
-        back.style.transform = "";
+        front.style.transform = "perspective(600px) rotateY(0deg)";
+        back.style.transform = "perspective(600px) rotateY(180deg)";
       }
     },
 
-    isMobile() {
-			const screenWidth = window.innerWidth;
-			const threshold = 700;
-
-			return screenWidth < threshold;
-			},
   },
 }
 
@@ -73,10 +74,11 @@ export default {
 
 <template>
   <!-- <Nav/> -->
+  
   <div class="main-container">
     <h1>Learn About the Creatures of the Land</h1>
     <div class="container-cards">
-      <div class="cards" v-for="img in this.cardImg" @click="isMobile() && flipCard">
+      <div class="cards" v-for="img in this.cardImg" @click="isMobile() && flipCard()">
         <div class="face front">
           <img :src="img.img">
         </div>
@@ -87,9 +89,6 @@ export default {
       </div>
     </div>
   </div>
-
-
-
 
   <!-- <Foot/>  -->
 </template>
